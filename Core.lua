@@ -659,7 +659,8 @@ function CEPGP_decay(amount, msg)
 		else]]
 			--EP,GP = CEPGP_getEPGP(offNote);
 			EP = math.floor(tonumber(EP)*(1-(amount/100)));
-			GP = math.floor(tonumber(GP)*(1-(amount/100)));
+			-- GP = math.floor(tonumber(GP)*(1-(amount/100)));
+			GP = BASEGP + math.floor((tonumber(GP) - BASEGP) * (1 - (amount / 100)));
 			if GP < BASEGP then
 				GP = BASEGP;
 			end
